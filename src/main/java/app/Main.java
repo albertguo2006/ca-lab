@@ -5,15 +5,15 @@ import javax.swing.JFrame;
 public class Main {
     public static void main(String[] args) {
         AppBuilder appBuilder = new AppBuilder();
-    JFrame application = appBuilder
-        .addLoginView()
-        .addSignupView()
-        .addLoggedInView()
-        .addSignupUseCase()
-        .addLoginUseCase()
-        .addChangePasswordUseCase()
-        .addLogoutUseCase()
-        .build();
+        JFrame application = appBuilder
+            .addLoginView()
+            .addSignupView()
+            .addLoggedInView()
+            .addSignupUseCase()
+            .addLoginUseCase()
+            .addChangePasswordUseCase()
+            .addLogoutUseCase()
+            .build();
 
         application.pack();
         application.setLocationRelativeTo(null);
