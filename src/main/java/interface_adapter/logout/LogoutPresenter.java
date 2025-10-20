@@ -39,6 +39,7 @@ public class LogoutPresenter implements LogoutOutputBoundary {
         // Update the LoginState to show the username of the user that just logged out.
         final interface_adapter.login.LoginState loginState = this.loginViewModel.getState();
         loginState.setUsername(response.getUsername());
+        loginState.setUsername("");
         this.loginViewModel.firePropertyChange();
 
         // This code tells the View Manager to switch to the LoginView.
