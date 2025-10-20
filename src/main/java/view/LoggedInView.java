@@ -1,18 +1,24 @@
 package view;
 
-import interface_adapter.logged_in.ChangePasswordController;
-import interface_adapter.logged_in.LoggedInState;
-import interface_adapter.logged_in.LoggedInViewModel;
-import interface_adapter.logout.LogoutController;
-
-import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import java.awt.*;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
+import interface_adapter.logged_in.ChangePasswordController;
+import interface_adapter.logged_in.LoggedInState;
+import interface_adapter.logged_in.LoggedInViewModel;
+import interface_adapter.logout.LogoutController;
 
 /**
  * The View for when the user is logged into the program.
@@ -108,8 +114,10 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
      * @param evt the ActionEvent to react to
      */
     public void actionPerformed(ActionEvent evt) {
-        // TODO: execute the logout use case through the Controller
-        System.out.println("Click " + evt.getActionCommand());
+        // Execute the logout use case through the Controller
+        if (evt.getSource().equals(logOut) && this.logoutController != null) {
+            this.logoutController.execute();
+        }
     }
 
     @Override
@@ -140,6 +148,6 @@ public class LoggedInView extends JPanel implements ActionListener, PropertyChan
     }
 
     public void setLogoutController(LogoutController logoutController) {
-        // TODO: save the logout controller in the instance variable.
+        this.logoutController = logoutController;
     }
 }
